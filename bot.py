@@ -10,7 +10,7 @@ cfgpath = f"{file_path}/config.json"
 with open(cfgpath, "r") as cfg:
     data = json.load(cfg)
 
-token = data['token']
+
 secretkey = data['secretkey']
 apiurl = data['apiurl']
 
@@ -45,4 +45,4 @@ async def check(ctx, arg1, arg2):
     elif response.json() == "false":
        await ctx.channel.send(f"__{arg1}__ - license does not exist with given id - __{arg2}__")
 
-dclient.run(token)
+dclient.run(env.process.TOKEN)
